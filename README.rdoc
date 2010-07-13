@@ -1,0 +1,22 @@
+= My Vim Config 
+This is my current Vim setup that I use with MacVim. You should be able to use this with GVim as well (on Windows) - making sure to update your vimrc file accordingly.
+
+= Credits
+This is based almost completely on Topfunky's Vim starter - which you can get as part of the Vim screencasts up at PeepCode (http://peepcode.com). I recommend them highly.
+
+== Installation
+The simplest thing you can do is to create a "VimSettings" directory somewhere on your drive. Mines in my home root (~/). Just do a git clone from this repo and put it to your drive somewhere, then you need to setup some aliases to point to the vimrc and gvimrc files.
+
+By default, Vim will look for these files in your root, so you'll need to alias them like this:
+	ln -s .vimrc ~/VimSettings/vimrc
+	ln -s .gvimrc ~/VimSettings/gvimrc
+
+== Colors
+I've redone the VividChalk theme as I think it was way too Miami Vice. I've toned down the colors to be a bit more true to VibrantInk (as well as borrowing from Blackboard).
+
+I've also included Inconsolata - my favorite programming font. If you're on Windows you can use Consolas - the setting for the font is in gvimrc (size, etc)
+
+== Copyright
+
+Copyright (c) 2010 Rob Conery. See LICENSE for details.
+
