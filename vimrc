@@ -71,6 +71,49 @@ imap <S-Tab> <C-P>
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 nmap <S-Tab> <C-W><C-W>
+
+"Vimcasts, vimrc on the fly
+if has("autocmd")
+	autocmd BufWritePost .vimrc source $MYVIMRC
+endif
+
+" typing ,v in normal mode opens up the ~/.vimrc file in new tab
+"let mapleader = ","
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+"Vimcasts, Show invisibles
+nmap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
+
+"Vimcasts, Soft Wrap
+command! -nargs=* Wrap set wrap linebreak nolist
+vmap <D-j> gj
+vmap <D-k> gk
+vmap <D-4> g$
+vmap <D-6> g^
+vmap <D-0> g0
+nmap <D-j> gj
+nmap <D-k> gk
+nmap <D-4> g$
+nmap <D-6> g^
+nmap <D-0> g0
+
+"Vimcasts, The Edit Command
+map <leader>ew :e <C-R>=expand("%:p:h") . "/"<CR>
+map <leader>es :sp <C-R>=expand("%:p:h") . "/"<CR>
+map <leader>ev :vsp <C-R>=expand("%:p:h") . "/"<CR>
+map <leader>et :tabe <C-R>=expand("%:p:h") . "/"<CR>
+
+"Vimcasts, Working with tabs
+"map <D-S-]> gt
+"map <D-S-[> gT
+"map <D-1> 1gt
+"map <D-2> 2gt
+"map <D-3> 3gt
+" ....
+"map <D-0> :tablast<CR>
+
+
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
