@@ -104,6 +104,20 @@ map <leader>es :sp <C-R>=expand("%:p:h") . "/"<CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/"<CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/"<CR>
 
+"Vimcasts, Working with Windows
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+"Emulate TextMate's shift left/right key commands
+"Vimcasts, Indentation Commands
+nmap <D-[> <<
+nmap <D-]> >>
+vmap <D-[> <gv
+vmap <D-]> >gv
+
+
 "Vimcasts, Working with tabs
 "map <D-S-]> gt
 "map <D-S-[> gT
@@ -113,6 +127,15 @@ map <leader>et :tabe <C-R>=expand("%:p:h") . "/"<CR>
 " ....
 "map <D-0> :tablast<CR>
 
+"Vimcasts, irb and vim
+"Restore cursor position if opened via irb
+"Note you've to install the interactive_editor gem to make this work
+if has("autocmd")
+	autocmd BufReadPost *
+	\ if line("'\"") > 1 && line("'\"") <= line("$") |
+	\   exe "normal! g`\"" |
+	\ endif
+endif
 
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
@@ -127,6 +150,9 @@ map <leader>et :tabe <C-R>=expand("%:p:h") . "/"<CR>
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
+
+"Vimcasts, Whitespace Preferences and File Types
+autocmd BufNewFile,BufRead *.ru,Gemfile,*.lock setfiletype ruby
 
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
