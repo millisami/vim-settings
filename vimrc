@@ -141,11 +141,11 @@ endif
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
 " Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
+nnoremap ; :
+nnoremap : ;
 
-"vnoremap ; :
-"vnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
