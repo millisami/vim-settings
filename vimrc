@@ -157,4 +157,8 @@ autocmd BufNewFile,BufRead *.ru,Gemfile,*.lock setfiletype ruby
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
+"Peepcode Smash Into Vim II at time 27:23
+:vmap > >gv
+:vmap < <gv
 
+:imap <Tab> <C-N>
