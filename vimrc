@@ -1,6 +1,11 @@
 " Example Vim configuration.
 " Copy or symlink to ~/.vimrc or ~/_vimrc.
 
+" typing ,v in normal mode opens up the ~/.vimrc file in new tab
+let mapleader = ","
+:nmap <leader>v :tabedit $MYVIMRC<CR>
+
+
 set nocompatible                  " Must come first because it changes other options.
 
 silent! call pathogen#runtime_append_all_bundles()
@@ -21,16 +26,9 @@ set hidden                        " Handle multiple buffers better.
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
-
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 
-set incsearch                     " Highlight matches as you type.
-set hlsearch                      " Highlight matches.
-
-set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 
 set title                         " Set the terminal's title
@@ -76,10 +74,6 @@ nmap <S-Tab> <C-W><C-W>
 if has("autocmd")
 	autocmd BufWritePost .vimrc source $MYVIMRC
 endif
-
-" typing ,v in normal mode opens up the ~/.vimrc file in new tab
-"let mapleader = ","
-nmap <leader>v :tabedit $MYVIMRC<CR>
 
 "Vimcasts, Show invisibles
 nmap <leader>l :set list!<CR>
@@ -157,8 +151,36 @@ autocmd BufNewFile,BufRead *.ru,Gemfile,*.lock setfiletype ruby
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
+
 "Peepcode Smash Into Vim II at time 27:23
 :vmap > >gv
 :vmap < <gv
 
 :imap <Tab> <C-N>
+
+" Customizations: http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines
+" Switch to normal mode from insert mode by pressing jj
+inoremap jj <ESC>
+
+" Search Settings
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
+set incsearch                     " Highlight matches as you type.
+set hlsearch                      " Highlight matches.
+set gdefault
+set showmatch
+nnoremap <leader><space> :noh<cr> " Unhighlight the highlghted text when doing search
+nnoremap <tab> %
+vnoremap <tab> %
+
+" Long Lines
+set wrap                          " Turn on line wrapping.
+"set textwidth=79
+"set formatoptions=qrn1
+"set colorcolumn=85
+
+" Use ,W to strip all trailing whitespace in the current file so I can clean things up quickly
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" I use Ack a lot (described below), so I mapped a leader key for it
+nnoremap <leader>a :Ack
