@@ -19,3 +19,6 @@
 [submodule "bundle/tomtom-tcomment_vim"]
 	path = bundle/tomtom-tcomment_vim
 	url = git://github.com/tomtom/tcomment_vim.git
+[submodule "bundle/lusty-explorer"]
+	path = bundle/lusty-explorer
+	url = git://github.com/vim-scripts/LustyExplorer.git
