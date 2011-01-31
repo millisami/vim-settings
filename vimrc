@@ -483,3 +483,35 @@ nmap <D-[> <<
 nmap <D-]> >>
 vmap <D-[> <gv
 vmap <D-]> >gv
+
+""""""""""""""""""""""""""""""
+" => Tabular plugin
+" => Vimcasts tweak- http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+""""""""""""""""""""""""""""""
+"If you were in normal or visual mode, you could type ,a= to align equals signs. 
+"In visual mode, the alignment would apply to the selected lines, 
+"but in normal mode tabular would attempt to guess the range.
+
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+
+"You could take it a step further, by creating an insert mode mapping 
+"to trigger the :Tabular command when you type the character that you want to align.
+" Useful for cucumber tables
+
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+ 
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
