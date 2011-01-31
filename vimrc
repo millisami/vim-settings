@@ -515,3 +515,11 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+""""""""""""""""""""""""""""""
+" => LustyExplorer plugin instruction
+""""""""""""""""""""""""""""""
+"<Leader>lf  - Opens filesystem explorer.
+"<Leader>lr  - Opens filesystem explorer at the directory of the current file.  
+"<Leader>lb  - Opens buffer explorer.
+"<Leader>lg  - Opens buffer grep.
