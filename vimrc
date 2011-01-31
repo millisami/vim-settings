@@ -439,7 +439,7 @@ map <leader>bb :cd ..<cr>
 " => Vimcasts Tweaks
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Vimcasts, Show invisibles
-nmap <leader>l :set list!<CR>
+set list!
 set listchars=tab:▸\ ,eol:¬
 
 "Vimcasts, irb and vim
