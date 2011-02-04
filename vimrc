@@ -23,14 +23,11 @@ let g:mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" Fast editing of the .vimrc
-" map <leader>e :e! ~/.vim/vimrc<cr>
-
 " typing ,v in normal mode opens up the ~/.vimrc file in new tab
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
 " When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source $MYVIMRC
+autocmd! bufwritepost .vimrc source $MYVIMRC
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
