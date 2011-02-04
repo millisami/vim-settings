@@ -106,7 +106,7 @@ set tm=500
 syntax enable "Enable syntax hl
 
 " Set font according to system
-set gfn=Menlo:h15
+set gfn=Monaco:h16
 set shell=/bin/zsh
 
 colorscheme vividchalk
