@@ -31,3 +31,6 @@
 [submodule "bundle/lusty-juggler"]
 	path = bundle/lusty-juggler
 	url = git://github.com/vim-scripts/LustyJuggler.git
+[submodule "bundle/rvm_ruby"]
+	path = bundle/rvm_ruby
+	url = git://github.com/jcf/rvm_ruby.vim.git
