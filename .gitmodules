@@ -34,3 +34,6 @@
 [submodule "bundle/rvm_ruby"]
 	path = bundle/rvm_ruby
 	url = git://github.com/jcf/rvm_ruby.vim.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
